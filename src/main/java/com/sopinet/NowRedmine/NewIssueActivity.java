@@ -56,6 +56,16 @@ public class NewIssueActivity extends ActionBarActivity {
     	getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     	getSupportActionBar().setHomeButtonEnabled(true);
     	
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();    	
+    	if (Intent.ACTION_SEND.equals(action) && type != null) {
+    		String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+    	    if (sharedText != null) {
+    	    	issue_title.setText(sharedText);
+    	    }
+    	}
+    	
     	showWait();
     	load();
 	}

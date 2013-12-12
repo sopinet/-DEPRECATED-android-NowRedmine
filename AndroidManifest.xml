@@ -27,7 +27,13 @@
         </activity>
         <activity android:name="MyListActivity_" />
         <activity android:name="ConfigActivity_" />
-        <activity android:name="NewIssueActivity_" />
+        <activity android:name="NewIssueActivity_">
+        	<intent-filter>
+   				<action android:name="android.intent.action.SEND" />
+   				<category android:name="android.intent.category.DEFAULT" />
+   				<data android:mimeType="text/plain" />
+  			</intent-filter> 
+        </activity>
     </application>
 
 </manifest>
